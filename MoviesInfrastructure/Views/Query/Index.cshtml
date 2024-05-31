@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MoviesDomain.Model.Film>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Queries</h1>
+
+@using (Html.BeginForm("HighlyRated", "Films"))
+{
+    <p>1. Знайти список фільмів із заданим середнім рейтингом, або вище:</p>
+    <input type="number" name="minRating" class="form-control" style="width: 60px;" />
+
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("ReviewsForFilm", "Reviews"))
+{
+    <p>2. Знайти усі відгуки на фільм за назвою:</p>
+    <input type="text" name="filmTitle" class="form-control" style="width: 200px;" placeholder="Enter film title" />
+
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("ActorsInFilmsAfterDate", "Actors"))
+{
+    <p>3. Знайти акторів, які знялися у фільмах, випущених після заданої дати:</p>
+    <input type="date" name="releaseDate" class="form-control" style="width: 200px;" />
+
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("RolesByFilmTitle", "FilmActors"))
+{
+    <p>4. Знайти усі ролі з певного фільму:</p>
+    <input type="text" name="filmTitle" class="form-control" style="width: 200px;" placeholder="Enter film title" />
+
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("FilmsWithActor", "Films"))
+{
+    <p>5. Знайти всі фільми з певним актором:</p>
+    <input type="text" name="actorName" class="form-control" style="width: 200px;" placeholder="Enter actor name" />
+
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("FilmsWithMatchingActors", "Films"))
+{
+    <p>6. Знайти фільми, які містять всіх тих і тільки тих акторів, що і заданий фільм:</p>
+    <input type="text" name="filmId" class="form-control" style="width: 200px;" placeholder="Enter film ID" />
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("FilmsWithAllActors", "Films"))
+{
+    <p>7. Знайти фільми, що містять всіх тих акторів, що і заданий фільм:</p>
+    <input type="text" name="filmId" class="form-control" style="width: 200px;" placeholder="Enter film ID" />
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
+
+@using (Html.BeginForm("FilmsWithoutActorsFromFilm", "Films"))
+{
+    <p>8. Знайти фільми, які не містять жодного актора, що має заданий фільм:</p>
+    <input type="text" name="filmId" class="form-control" style="width: 200px;" placeholder="Enter film ID" />
+    <input type="submit" class="btn btn-info mt-1 mb-1" style="font-size:14px; padding:5px 7px; border-radius: 10px" value="Знайти" />
+}
