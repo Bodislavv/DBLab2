@@ -94,7 +94,6 @@ namespace MoviesInfrastructure.Controllers
             return View("Index", films);
         }
 
-
         // Знайти фільми, що містять всіх тих акторів, що і заданий фільм
         public async Task<IActionResult> FilmsWithAllActors(int filmId)
         {
